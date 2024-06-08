@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "main": "tsx hexanode.ts"
+  },
+  "type": "module",
+  "name": "hexanode",
+  "version": "1.0.0",
+  "description": "Hexagonal photo filter",
+  "main": "hexanode.ts",
+  "author": "Edwin Gustafson <edwingustafson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.14.2",
+    "canvas": "^2.11.2",
+    "lodash-es": "^4.17.21",
+    "sharp": "^0.33.4",
+    "tsx": "^4.14.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {}
+}
