@@ -4,7 +4,7 @@ import Color from './lib/color';
 import hexagon from './lib/hexagon';
 import { clamp } from 'lodash-es';
 
-const dx = process.env.DX ? parseFloat(process.env.DX) : 50.0;
+const dx = process.env.DX ? parseFloat(process.env.DX) : 64.0;
 
 const color = (pixels: Array<number>, x: number, y: number, w: number) => {
     const [xx, yy] = [clamp(x, 0, w - 1), clamp(y, 0, pixels.length / w - 1)];
@@ -38,4 +38,4 @@ for( let x = 0.0; x < dx + width; x += dx) {
 }
 
 const output = sharp(canvas.toBuffer());
-await output.toFile('output.png');
+await output.png({compressionLevel: 9, progressive: true}).toFile('output.png');
