@@ -3,11 +3,14 @@ import sharp from 'sharp';
 import Color from './lib/color';
 import hexagon from './lib/hexagon';
 import { clamp } from 'lodash-es';
+import dotenv from 'dotenv';
 
-const dx = process.env.DX ? parseFloat(process.env.DX) : 64.0;
+dotenv.config();
+const dx = process.env.DX ? parseFloat(process.env.DX) : 48.0;
 
 const color = (pixels: Array<number>, x: number, y: number, w: number) => {
-    const [xx, yy] = [clamp(x, 0, w - 1), clamp(y, 0, pixels.length / w - 1)];
+    const h = pixels.length / 3.0 / w;
+    const [xx, yy] = [clamp(x, 0, w - 1), clamp(y, 0, h - 1)];
     const offset = (yy * w + xx) * 3;
     return new Color(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
 }

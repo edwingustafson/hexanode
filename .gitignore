@@ -1,5 +1,6 @@
 input.jpg
 output.png
+.env
 
 # Node.js
 node_modules/
