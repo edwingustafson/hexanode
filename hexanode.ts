@@ -42,3 +42,4 @@ for( let x = 0.0; x < dx + width; x += dx) {
 
 const output = sharp(canvas.toBuffer());
 await output.png({compressionLevel: 9, progressive: true}).toFile('output.png');
+await output.avif({quality: 50}).toFile('output.avif');
