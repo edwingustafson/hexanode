@@ -2,7 +2,7 @@ import { createCanvas } from 'canvas';
 import sharp from 'sharp';
 import Color from './lib/color.ts';
 import hexagon from './lib/hexagon.ts';
-import { clamp } from 'lodash-es';
+import { clamp } from './lib/clamp.ts';
 
 const dx = process.env.DX ? parseFloat(process.env.DX) : 48.0;
 
