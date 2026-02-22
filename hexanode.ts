@@ -3,9 +3,7 @@ import sharp from 'sharp';
 import Color from './lib/color.ts';
 import hexagon from './lib/hexagon.ts';
 import { clamp } from 'lodash-es';
-import dotenv from 'dotenv';
 
-dotenv.config();
 const dx = process.env.DX ? parseFloat(process.env.DX) : 48.0;
 
 const color = (pixels: Array<number>, x: number, y: number, w: number) => {
