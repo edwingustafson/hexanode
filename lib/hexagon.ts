@@ -1,4 +1,4 @@
-import Color from './color';
+import Color from './color.ts';
 
 const angle = Math.PI / 3.0;
 

@@ -1,7 +1,7 @@
 import { createCanvas } from 'canvas';
 import sharp from 'sharp';
-import Color from './lib/color';
-import hexagon from './lib/hexagon';
+import Color from './lib/color.ts';
+import hexagon from './lib/hexagon.ts';
 import { clamp } from 'lodash-es';
 import dotenv from 'dotenv';
 
