@@ -1,10 +1,14 @@
 {
 	"name": "Node.js & TypeScript",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node",
 	"runArgs": [
 		"--rm",
 		"--platform=linux/amd64",
 		"--name=hexanode"
 	],
-	"postCreateCommand": "sudo apt-get update && sudo apt upgrade && sudo apt-get -y install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev"
+	"mounts": [
+		"source=${localEnv:HOME}/.claude,target=/home/node/.claude,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.claude.json,target=/home/node/.claude.json,type=bind,consistency=cached"
+	],
+	"postCreateCommand": "./.devcontainer/postCreateCommand.sh"
 }
