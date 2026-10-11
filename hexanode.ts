@@ -6,7 +6,7 @@ import { clamp } from './lib/clamp.ts';
 
 const dx = process.env.DX ? parseFloat(process.env.DX) : 48.0;
 
-const color = (pixels: Array<number>, x: number, y: number, w: number) => {
+const color = (pixels: Buffer, x: number, y: number, w: number) => {
     const h = pixels.length / 3.0 / w;
     const [xx, yy] = [clamp(x, 0, w - 1), clamp(y, 0, h - 1)];
     const offset = (yy * w + xx) * 3;
@@ -14,10 +14,9 @@ const color = (pixels: Array<number>, x: number, y: number, w: number) => {
 }
 
 const input = sharp('input.jpg');
-const { info, data } = await input.raw().toBuffer({ resolveWithObject: true });
+const { info, data: pixels } = await input.raw().toBuffer({ resolveWithObject: true });
 
 const { width, height } = info;
-const pixels = Array.from(data);
 
 const canvas = createCanvas(width, height);
 const context = canvas.getContext('2d');
