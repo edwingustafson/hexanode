@@ -3,7 +3,6 @@
 	"image": "mcr.microsoft.com/devcontainers/typescript-node",
 	"runArgs": [
 		"--rm",
-		"--platform=linux/amd64",
 		"--name=hexanode"
 	],
 	"mounts": [
