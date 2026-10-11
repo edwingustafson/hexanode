@@ -3,6 +3,9 @@ output.avif
 output.png
 .env
 
+*.jpg
+*.png
+
 # Node.js
 node_modules/
 npm-debug.log
