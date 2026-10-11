@@ -38,5 +38,6 @@ for( let x = 0.0; x < dx + width; x += dx) {
     }
 }
 
-const output = sharp(canvas.toBuffer('image/png'));
+const { data: rgba } = context.getImageData(0, 0, width, height);
+const output = sharp(rgba, { raw: { width, height, channels: 4 } });
 await output.png({compressionLevel: 9, progressive: true}).toFile('output.png');
