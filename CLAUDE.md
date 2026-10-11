@@ -26,11 +26,11 @@ Install with:
 yarn install
 ```
 
-The `canvas` package requires native system libraries. In the devcontainer these are installed automatically via `.devcontainer/postCreateCommand.sh` (`libcairo2-dev`, `libpango1.0-dev`, `libjpeg-dev`, `libgif-dev`, `librsvg2-dev`). Outside the devcontainer, install these via your system package manager before running `yarn install`.
+Rendering uses `@napi-rs/canvas` (Skia), which ships prebuilt binaries — no native system libraries are required.
 
 ## Architecture
 
-- **`hexanode.ts`** — entry point and orchestration. Reads `input.jpg` with `sharp`, samples pixel colors, renders a point-topped hexagonal grid onto a `canvas`, then writes `output.png` (max compression) and `output.avif` (quality 50) via `sharp`.
+- **`hexanode.ts`** — entry point and orchestration. Reads `input.jpg` with `sharp`, samples pixel colors, renders a point-topped hexagonal grid onto an `@napi-rs/canvas` canvas, then writes `output.png` (max compression) and `output.avif` (quality 50) via `sharp`.
 - **`lib/hexagon.ts`** — draws a single filled hexagon onto a canvas 2D context given center `(x, y)`, radius `r`, and a `Color`.
 - **`lib/color.ts`** — simple RGB color value class with a `toString()` for canvas `fillStyle`.
 

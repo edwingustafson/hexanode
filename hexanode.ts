@@ -1,4 +1,4 @@
-import { createCanvas } from 'canvas';
+import { createCanvas } from '@napi-rs/canvas';
 import sharp from 'sharp';
 import Color from './lib/color.ts';
 import hexagon from './lib/hexagon.ts';
@@ -38,5 +38,5 @@ for( let x = 0.0; x < dx + width; x += dx) {
     }
 }
 
-const output = sharp(canvas.toBuffer());
+const output = sharp(canvas.toBuffer('image/png'));
 await output.png({compressionLevel: 9, progressive: true}).toFile('output.png');

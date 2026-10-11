@@ -1,8 +1,9 @@
+import type { SKRSContext2D } from '@napi-rs/canvas';
 import Color from './color.ts';
 
 const angle = Math.PI / 3.0;
 
-export default (ctx: any, x: number, y: number, r: number, color: Color) => {
+export default (ctx: SKRSContext2D, x: number, y: number, r: number, color: Color) => {
     ctx.beginPath();
 
     for ( let a = 0.0; a < Math.PI * 2; a += angle) {
